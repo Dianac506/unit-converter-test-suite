@@ -87,7 +87,7 @@ unit-converter-test-suite/
 |   |-- adr/
 |       |-- 001-separation-of-concerns.md
 |       |-- 002-automated-unit-testing.md
-|   |   |-- 003-continuous-integration.md
+|       |-- 003-continuous-integration.md
 |
 |-- index.html
 |-- styles.css
