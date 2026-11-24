@@ -1,0 +1,17 @@
+
+{
+  "name": "unit-converter-test-suite",
+  "version": "1.0.0",
+  "description": "CMPS 570 Final Project - Unit Converter focused on Testability",
+  "author": "Diana Carolina Salgado Ortiz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "coverage": "vitest run --coverage --coverage.include=converter.js --coverage.thresholds.lines=80 --coverage.thresholds.functions=80 --coverage.thresholds.branches=80 --coverage.thresholds.statements=80"
+  },
+  "devDependencies": {
+    "vitest": "3.2.4",
+    "@vitest/coverage-v8": "3.2.4"
+  }
+}
