@@ -55,7 +55,7 @@ The application is publicly available through GitHub Pages.
 
 This project uses a modular architecture for the presentation, interaction and conversion code using the Separation of Concerns principle.
 
-The presentation layer, user interaction logic and core conversion logic are separated into 3 files.
+The presentation layer, user interaction layer and core conversion logic are all written as separate modules to make it easier to maintain and test the code.
 
 Testing of the conversion module is now possible without having to set up a browser.
 
@@ -64,13 +64,15 @@ Testing of the conversion module is now possible without having to set up a brow
 - [Software Architecture and Diagrams](docs/architecture.md)
 - [ADR 001: Separation of Concerns](docs/adr/001-separation-of-concerns.md)
 - [ADR 002: Automated Unit Testing](docs/adr/002-automated-unit-testing.md)
+- [ADR 003: Continuous Integration](docs/adr/003-continuous-integration.md)
 
 The architecture documentation includes:
 
 1. System Context Diagram
 2. Component Diagram
 3. Sequence Diagram
-
+4. Deployment Diagram
+   
 ## 6. Repository Structure
 
 ```
@@ -85,6 +87,7 @@ unit-converter-test-suite/
 |   |-- adr/
 |       |-- 001-separation-of-concerns.md
 |       |-- 002-automated-unit-testing.md
+|   |   |-- 003-continuous-integration.md
 |
 |-- index.html
 |-- styles.css
@@ -204,34 +207,37 @@ the application's user interface:
 | Time | 2 hours | 120 minutes | Passed |
 
 ## 13. Conclusion
+The Unit Converter with Test Suite was an important piece of software for me to develop in order to understand the roles of software architecture in assuring the quality, ensuring the reliability, and making maintenance easier of software.
 
-Developing the Unit Converter with Test Suite
-understand how software architecture influences the quality,
-reliability, and maintainability of an application.
+Just as testability is not only writing a lot of tests, it also has a lot to do with how an application is architected and how individual components of the application can be tested independently in an efficient manner to ensure that they are working correctly.
 
-Testability is not just testing, but also architectural decisions that allow to verify components efficiently and in a correct manner.
-simply about writing tests, but about making architectural
-decisions that allow software components to be verified
-independently, efficiently, and consistently.
+By Separating out Concerns, automatically testing out individual units of work, and having ongoing integration testing, I was able to get 100% coverage of the core code for the conversion, above the minimum 80% for the project.
 
-By applying the Separation of Concerns principle, implementing
-automated unit tests, and integrating continuous integration
-I was able to get 100% code coverage for the core conversion module for this project.
-coverage for the core conversion module, exceeding the
-established minimum threshold of 80%.
+It really is easy to design software with quality attributes in mind if you start designing software from the start of your development process.
 
-This experience reinforced my understanding of the importance
-of designing software with quality attributes in mind from
-the beginning of the development process.
+Even though the tool presented here is small, it contains all the same architectural principles, that you would use for any larger project as well.
 
-Although the application is relatively simple, the architectural
-principles implemented in this project can be applied to larger
-and more complex software systems.
+In the future it would be great to add more conversion types (e.g. Unit conversion, Date conversion, etc…). Also automate tests for the UI as well as implement some accessibility tests.
 
-As a future improvement, the project could incorporate
-additional conversion categories, automated user interface
-testing, and accessibility evaluations to further enhance
-its overall software quality.
+The deployment architecture supports Testability by separating
+the production execution environment from the automated
+testing environment.
+
+The conversion logic can be tested independently without
+launching a web browser or deploying the application.
+
+GitHub Actions automatically executes the test suite and
+verifies the minimum code coverage threshold of 80%.
+
+The application does not require a backend server or database,
+reducing infrastructure complexity and external dependencies.
+
+The successful execution of 29 automated tests and 100%
+code coverage of converter.js demonstrates the effectiveness
+of the independent testing environment.
+
+This only applies to the conversion logic module in the converter.js file.
+This does not cover all the UI in the application, only the conversion logic in converter.js.
 
 ---
 
