@@ -1,0 +1,137 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f4f8;
+    color: #243447;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #142c46;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 36px;
+}
+
+header p {
+    margin: 0;
+    color: #d1deeb;
+}
+
+.converter {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    margin-top: 0;
+    color: #142c46;
+    text-align: center;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #243447;
+    background-color: #ffffff;
+    border: 1px solid #b8c5d1;
+    border-radius: 8px;
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid #90b9e5;
+    border-color: #245b94;
+}
+
+.unit-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #eaf3fc;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.result h3 {
+    margin-top: 0;
+    color: #142c46;
+}
+
+#result {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    color: #245b94;
+    overflow-wrap: anywhere;
+}
+
+#error {
+    color: #b91c1c;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #142c46;
+    color: #d1deeb;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media (max-width: 480px) {
+    .converter {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .unit-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    #result {
+        font-size: 26px;
+    }
+}
