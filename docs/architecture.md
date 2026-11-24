@@ -170,3 +170,85 @@ GitHub Actions artifact.
 - [Source Code](https://github.com/Dianac506/unit-converter-test-suite)
 - [Live Application](https://dianac506.github.io/unit-converter-test-suite/)
 - [Automated Testing Workflow](https://github.com/Dianac506/unit-converter-test-suite/actions)
+
+
+## Deployment Diagram
+
+The deployment diagram illustrates the physical and execution
+environments of the Unit Converter application.
+
+The application is hosted on GitHub Pages and executes entirely
+within the user's web browser. Automated testing is performed
+in a separate continuous integration environment using
+GitHub Actions, Node.js, and Vitest.
+
+```mermaid
+flowchart TD
+    A[Developer] -->|Push code| B[GitHub Repository]
+
+    subgraph CI["Continuous Integration Environment"]
+        C[GitHub Actions Runner]
+        E[Node.js and Vitest]
+        F[Automated Unit Tests]
+        G[Code Coverage Report]
+
+        C --> E
+        E --> F
+        E --> G
+    end
+
+    subgraph Hosting["Hosting Environment"]
+        D[GitHub Pages]
+        H[Static Application Files]
+
+        D --> H
+    end
+
+    subgraph Client["Client Environment"]
+        I[User Web Browser]
+        J[Unit Converter Application]
+
+        I --> J
+    end
+
+    B --> C
+    B --> D
+    H -->|HTTPS| I
+
+    style J fill:#24588D,color:#FFFFFF
+    style F fill:#258032,color:#FFFFFF
+    style G fill:#258032,color:#FFFFFF
+```
+
+### Deployment Components
+
+| Component | Responsibility |
+| --- | --- |
+| GitHub Repository | Stores source code, tests, and architecture documentation. |
+| GitHub Pages | Hosts and delivers the static web application. |
+| User Web Browser | Executes the application and displays conversion results. |
+| GitHub Actions Runner | Provides the automated testing environment. |
+| Node.js and Vitest | Execute unit tests and measure code coverage. |
+| Code Coverage Report | Provides measurable evidence of testability. |
+
+### Deployment Architecture and Testability
+
+The deployment architecture supports Testability by separating
+the production execution environment from the automated
+testing environment.
+
+The conversion logic can be tested independently without
+launching a web browser or deploying the application.
+
+GitHub Actions automatically executes the test suite and
+verifies the minimum code coverage threshold of 80%.
+
+The application does not require a backend server or database,
+reducing infrastructure complexity and external dependencies.
+
+The successful execution of 29 automated tests and 100%
+code coverage of converter.js demonstrates the effectiveness
+of the independent testing environment.
+
+The coverage results apply to the conversion logic module
+This does not include coverage for the User Interface (UI).
